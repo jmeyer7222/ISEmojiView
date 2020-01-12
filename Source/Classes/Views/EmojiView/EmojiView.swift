@@ -28,7 +28,7 @@ public extension EmojiViewDelegate {
     
 }
 
-final public class EmojiView: UIView {
+public class EmojiView: UIView {
     
     // MARK: - IBInspectable variables
     
