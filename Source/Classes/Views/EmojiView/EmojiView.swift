@@ -136,7 +136,7 @@ open class EmojiView: UIView {
     
     // MARK: - Override functions
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         if #available(iOS 11.0, *) {
