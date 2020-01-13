@@ -36,20 +36,25 @@ final public class EmojiLoader {
             .smileysAndPeople, .animalsAndNature, .foodAndDrink,
             .activity, .travelAndPlaces, .objects, .symbols, .flags
         ]
-        
+        /*
         if #available(iOS 13.1, *) {
             availableCategories = [
                 .smileysAndEmotion, .peopleAndBody, .animalsAndNature, .foodAndDrink,
                 .activity, .travelAndPlaces, .objects, .symbols, .flags
             ]
-        }
+        }*/
         
         for dictionary in categories {
             guard let title = dictionary["title"] as? String else {
                 continue
             }
             
-            guard let category = availableCategories.first(where: { $0.title == title }) else {
+            guard let category = availableCategories.first(where:
+                { $0.title == title
+                    || ((title == "Smileys & Emotion" || title == "People & Body") &&
+                        $0.title == "Smileys & People")
+                    
+            }) else {
                 continue
             }
             
