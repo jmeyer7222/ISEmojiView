@@ -10,6 +10,8 @@ import Foundation
 public enum Category: Equatable {
     case recents
     case smileysAndPeople
+    case smileysAndEmotion
+    case peopleAndBody
     case animalsAndNature
     case foodAndDrink
     case activity
@@ -26,6 +28,10 @@ public enum Category: Equatable {
         case .recents:
             return "Frequently Used"
         case .smileysAndPeople:
+            return "Smileys & People"
+        case .smileysAndEmotion:
+            return "Smileys & People"
+        case .peopleAndBody:
             return "Smileys & People"
         case .animalsAndNature:
             return "Animals & Nature"
@@ -51,6 +57,10 @@ public enum Category: Equatable {
         case .recents:
             return "ic_recents"
         case .smileysAndPeople:
+            return "ic_smileys_people"
+        case .smileysAndEmotion:
+            return "ic_smileys_people"
+        case .peopleAndBody:
             return "ic_smileys_people"
         case .animalsAndNature:
             return "ic_animals_nature"
