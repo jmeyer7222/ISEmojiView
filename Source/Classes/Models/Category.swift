@@ -30,9 +30,9 @@ public enum Category: Equatable {
         case .smileysAndPeople:
             return "Smileys & People"
         case .smileysAndEmotion:
-            return "Smileys & People"
+            return "Smileys & Emotion"
         case .peopleAndBody:
-            return "Smileys & People"
+            return "People & Body"
         case .animalsAndNature:
             return "Animals & Nature"
         case .foodAndDrink:
