@@ -120,6 +120,10 @@ internal class EmojiCollectionView: UIView {
         
         if category == .recents && emojis[section].emojis.isEmpty {
             section = emojis.firstIndex(where: { $0.category == Category.smileysAndPeople })!
+            
+            if #available(iOS 13.1, *) {
+                section = emojis.firstIndex(where: { $0.category == Category.smileysAndEmotion })!
+            }
         }
         
         let indexPath = IndexPath(item: 0, section: section)
