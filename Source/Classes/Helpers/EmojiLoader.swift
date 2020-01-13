@@ -72,8 +72,20 @@ final public class EmojiLoader {
                 }
             }
             
-            let emojiCategory = EmojiCategory(category: category, emojis: emojis)
-            emojiCategories.append(emojiCategory)
+            if emojiCategories.contains(where: { (ec) -> Bool in
+                ec.category.title == category.title
+            }) {
+                let c = emojiCategories.first { (ec) -> Bool in
+                    ec.category.title == category.title
+                }
+                
+                c?.emojis.append(contentsOf: emojis)
+            }
+            else {
+            
+                let emojiCategory = EmojiCategory(category: category, emojis: emojis)
+                emojiCategories.append(emojiCategory)
+            }
         }
         
         return emojiCategories
