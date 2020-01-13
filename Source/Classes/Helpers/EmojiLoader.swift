@@ -53,6 +53,7 @@ final public class EmojiLoader {
                 { $0.title == title
                     || ((title == "Smileys & Emotion" || title == "People & Body") &&
                         $0.title == "Smileys & People")
+                    || (title == "Activities" && $0.title == "Activity")
                     
             }) else {
                 continue
