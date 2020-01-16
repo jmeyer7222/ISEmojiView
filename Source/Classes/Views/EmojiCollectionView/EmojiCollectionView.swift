@@ -96,6 +96,10 @@ internal class EmojiCollectionView: UIView {
         return view
     }
     
+    public func scrollToX(x:CGFloat) {
+        self.collectionView.contentOffset.x = x
+    }
+    
     // MARK: - Override functions
     
     override public func point(inside point: CGPoint, with event: UIEvent?) -> Bool {

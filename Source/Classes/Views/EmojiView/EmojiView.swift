@@ -87,7 +87,11 @@ open class EmojiView: UIView {
     private var bottomType: BottomType!
     private var emojis: [EmojiCategory]!
     private var keyboardSettings: KeyboardSettings?
-    
+
+    public func scrollToX(x:CGFloat) {
+        self.emojiCollectionView!.scrollToX(x:x)
+    }
+
     // MARK: - Init functions
     
     public override init(frame: CGRect) {
