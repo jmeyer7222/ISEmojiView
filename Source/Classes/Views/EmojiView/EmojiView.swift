@@ -79,7 +79,7 @@ open class EmojiView: UIView {
     // MARK: - Private variables
     
     private weak var bottomContainerView: UIView?
-    private weak var emojiCollectionView: EmojiCollectionView?
+    public weak var emojiCollectionView: EmojiCollectionView?
     private weak var pageControlBottomView: PageControlBottomView?
     private weak var categoriesBottomView: CategoriesBottomView?
     private var bottomConstraint: NSLayoutConstraint?

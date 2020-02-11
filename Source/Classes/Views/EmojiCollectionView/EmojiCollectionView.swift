@@ -28,7 +28,7 @@ internal protocol EmojiCollectionViewDelegate: class {
 }
 
 /// A emoji keyboard view
-internal class EmojiCollectionView: UIView {
+public class EmojiCollectionView: UIView {
     
     // MARK: - Public variables
     
@@ -66,7 +66,7 @@ internal class EmojiCollectionView: UIView {
     
     // MARK: - Override variables
     
-    internal override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: frame.size.height)
     }
 
@@ -140,15 +140,15 @@ internal class EmojiCollectionView: UIView {
 
 extension EmojiCollectionView: UICollectionViewDataSource {
     
-    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return emojis.count
     }
     
-    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return emojis[section].emojis.count
     }
     
-    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let emojiCategory = emojis[indexPath.section]
         let emoji = emojiCategory.emojis[indexPath.item]
         
@@ -170,7 +170,7 @@ extension EmojiCollectionView: UICollectionViewDataSource {
 
 extension EmojiCollectionView: UICollectionViewDelegate {
     
-    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard emojiPopView.isHidden else {
             dismissPopView(false)
             return
@@ -182,7 +182,7 @@ extension EmojiCollectionView: UICollectionViewDelegate {
         delegate?.emojiViewDidSelectEmoji(emojiView: self, emoji: emoji, selectedEmoji: emoji.selectedEmoji ?? emoji.emoji)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if !scrollViewWillBeginDecelerating && !scrollViewWillBeginDragging {
             return
         }
@@ -199,7 +199,7 @@ extension EmojiCollectionView: UICollectionViewDelegate {
 
 extension EmojiCollectionView: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         var inset = UIEdgeInsets.zero
         
         if let recentsEmojis = emojis.first(where: { $0.category == Category.recents }) {
@@ -225,23 +225,23 @@ extension EmojiCollectionView: UICollectionViewDelegateFlowLayout {
 
 extension EmojiCollectionView {
 
-    internal func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         scrollViewWillBeginDragging = true
     }
     
-    internal func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         scrollViewWillBeginDecelerating = true
     }
     
-    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         dismissPopView(false)
     }
     
-    internal func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         scrollViewWillBeginDragging = false
     }
     
-    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewWillBeginDecelerating = false
     }
 
