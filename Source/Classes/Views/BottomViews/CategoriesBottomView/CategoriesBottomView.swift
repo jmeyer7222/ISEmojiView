@@ -9,7 +9,7 @@ import Foundation
 
 private let MinCellSize = CGFloat(35)
 
-internal protocol CategoriesBottomViewDelegate: class {
+public protocol CategoriesBottomViewDelegate: class {
     
     func categoriesBottomViewDidSelecteCategory(_ category: Category, bottomView: CategoriesBottomView)
     func categoriesBottomViewDidPressChangeKeyboardButton(_ bottomView: CategoriesBottomView)
@@ -17,7 +17,7 @@ internal protocol CategoriesBottomViewDelegate: class {
     
 }
 
-final internal class CategoriesBottomView: UIView {
+public class CategoriesBottomView: UIView {
     
     // MARK: - Internal variables
     
@@ -88,7 +88,7 @@ final internal class CategoriesBottomView: UIView {
     
     // MARK: - Override functions
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -145,11 +145,11 @@ final internal class CategoriesBottomView: UIView {
 
 extension CategoriesBottomView: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         cell.setEmojiCategory(categories[indexPath.item])
         return cell
@@ -161,7 +161,7 @@ extension CategoriesBottomView: UICollectionViewDataSource {
 
 extension CategoriesBottomView: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.categoriesBottomViewDidSelecteCategory(categories[indexPath.item], bottomView: self)
     }
     

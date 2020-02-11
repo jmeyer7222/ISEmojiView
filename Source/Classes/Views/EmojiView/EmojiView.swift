@@ -200,15 +200,15 @@ extension EmojiView: PageControlBottomViewDelegate {
 
 extension EmojiView: CategoriesBottomViewDelegate {
     
-    func categoriesBottomViewDidSelecteCategory(_ category: Category, bottomView: CategoriesBottomView) {
+    public func categoriesBottomViewDidSelecteCategory(_ category: Category, bottomView: CategoriesBottomView) {
         emojiCollectionView?.scrollToCategory(category)
     }
     
-    func categoriesBottomViewDidPressChangeKeyboardButton(_ bottomView: CategoriesBottomView) {
+    public func categoriesBottomViewDidPressChangeKeyboardButton(_ bottomView: CategoriesBottomView) {
         delegate?.emojiViewDidPressChangeKeyboardButton(self)
     }
     
-    func categoriesBottomViewDidPressDeleteBackwardButton(_ bottomView: CategoriesBottomView) {
+    public func categoriesBottomViewDidPressDeleteBackwardButton(_ bottomView: CategoriesBottomView) {
         delegate?.emojiViewDidPressDeleteBackwardButton(self)
     }
     

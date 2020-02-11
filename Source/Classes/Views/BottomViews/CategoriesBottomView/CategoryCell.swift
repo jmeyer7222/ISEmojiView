@@ -10,6 +10,7 @@ import Foundation
 private let HighlightedBackgroundViewSize = CGFloat(30)
 private let ImageActiveTintColor = UIColor(red: 95/255, green: 94/255, blue: 95/255, alpha: 1)
 private let ImageNonActiveTintColor = UIColor(red: 161/255, green: 165/255, blue: 172/255, alpha: 1)
+private let ImageDisabledTintColor = UIColor(red: 161/255, green: 165/255, blue: 172/255, alpha: 0.4)
 
 internal class CategoryCell: UICollectionViewCell {
     
@@ -32,11 +33,13 @@ internal class CategoryCell: UICollectionViewCell {
     // MARK: - Override functions
     
     override init(frame: CGRect) {
+        isDisabled = false
         super.init(frame: frame)
         setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
+        isDisabled = false
         super.init(coder: aDecoder)
         setupView()
     }
@@ -52,6 +55,13 @@ internal class CategoryCell: UICollectionViewCell {
         didSet {
             highlightedBackgroundView.isHidden = !isSelected
             emojiImageView.tintColor = isSelected ? ImageActiveTintColor : ImageNonActiveTintColor
+        }
+    }
+    
+    public var isDisabled: Bool {
+        didSet {
+            highlightedBackgroundView.isHidden = !isSelected
+            emojiImageView.tintColor = isDisabled ? ImageDisabledTintColor : isSelected ? ImageActiveTintColor : ImageNonActiveTintColor
         }
     }
     
