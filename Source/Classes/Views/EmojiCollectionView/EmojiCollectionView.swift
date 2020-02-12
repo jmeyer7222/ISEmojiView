@@ -28,7 +28,7 @@ internal protocol EmojiCollectionViewDelegate: class {
 }
 
 /// A emoji keyboard view
-public class EmojiCollectionView: UIView {
+open class EmojiCollectionView: UIView {
     
     // MARK: - Public variables
     
